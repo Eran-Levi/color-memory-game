@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<debugInfo>
+<pcToLineNum>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="26" pc="268435456" symbol="initialize"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="27" pc="268435460" symbol="initialize"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="28" pc="268435490" symbol="initialize"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="30" pc="268435532" symbol="initialize"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="31" pc="268435566" symbol="initialize"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="32" pc="268435600" symbol="initialize"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="34" pc="268435633" symbol="initialize"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="37" pc="268435652" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="38" pc="268435656" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="39" pc="268435691" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="40" pc="268435714" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="41" pc="268435743" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="42" pc="268435762" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="43" pc="268435791" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="47" pc="268435807" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="48" pc="268435830" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="49" pc="268435846" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="53" pc="268435885" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="54" pc="268435896" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="57" pc="268435928" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="62" pc="268435947" symbol="onLayout"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="65" pc="268435952" symbol="newGame"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="66" pc="268435956" symbol="newGame"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="67" pc="268435970" symbol="newGame"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="68" pc="268435999" symbol="newGame"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="69" pc="268436011" symbol="newGame"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="72" pc="268436028" symbol="playSequence"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="73" pc="268436032" symbol="playSequence"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="74" pc="268436048" symbol="playSequence"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="75" pc="268436061" symbol="playSequence"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="78" pc="268436103" symbol="sequenceTimerCallback"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="79" pc="268436107" symbol="sequenceTimerCallback"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="80" pc="268436136" symbol="sequenceTimerCallback"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="81" pc="268436171" symbol="sequenceTimerCallback"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="82" pc="268436189" symbol="sequenceTimerCallback"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="83" pc="268436205" symbol="sequenceTimerCallback"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="84" pc="268436218" symbol="sequenceTimerCallback"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="87" pc="268436237" symbol="sequenceTimerCallback"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="91" pc="268436257" symbol="blinkColor"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="92" pc="268436261" symbol="blinkColor"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="93" pc="268436271" symbol="blinkColor"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="94" pc="268436281" symbol="blinkColor"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="95" pc="268436315" symbol="blinkColor"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="96" pc="268436331" symbol="blinkColor"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="99" pc="268436373" symbol="blinkTimerCallback"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="100" pc="268436377" symbol="blinkTimerCallback"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="101" pc="268436387" symbol="blinkTimerCallback"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="102" pc="268436409" symbol="blinkTimerCallback"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="103" pc="268436425" symbol="blinkTimerCallback"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="104" pc="268436435" symbol="blinkTimerCallback"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="105" pc="268436446" symbol="blinkTimerCallback"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="106" pc="268436456" symbol="blinkTimerCallback"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="107" pc="268436485" symbol="blinkTimerCallback"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="111" pc="268436501" symbol="getRandomColor"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="112" pc="268436505" symbol="getRandomColor"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="118" pc="268436540" symbol="onShow"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="122" pc="268436545" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="125" pc="268436549" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="126" pc="268436585" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="128" pc="268436597" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="130" pc="268436633" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="132" pc="268436647" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="133" pc="268436683" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="134" pc="268436734" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="135" pc="268436741" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="136" pc="268436797" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="138" pc="268436853" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="139" pc="268436870" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="140" pc="268436890" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="141" pc="268436926" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="142" pc="268436957" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="143" pc="268436984" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="144" pc="268437018" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="147" pc="268437075" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="148" pc="268437075" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="149" pc="268437095" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="150" pc="268437131" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="153" pc="268437161" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="154" pc="268437197" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="157" pc="268437207" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="158" pc="268437243" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="160" pc="268437250" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="161" pc="268437277" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="165" pc="268437346" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="166" pc="268437382" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="167" pc="268437389" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="168" pc="268437416" symbol="onUpdate"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="173" pc="268437504" symbol="drawMainCircle"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="174" pc="268437508" symbol="drawMainCircle"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="175" pc="268437515" symbol="drawMainCircle"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="176" pc="268437553" symbol="drawMainCircle"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="179" pc="268437576" symbol="drawMainCircle"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="180" pc="268437606" symbol="drawMainCircle"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="181" pc="268437629" symbol="drawMainCircle"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="184" pc="268437639" symbol="drawMainCircle"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="185" pc="268437673" symbol="drawMainCircle"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="186" pc="268437750" symbol="drawMainCircle"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="190" pc="268437773" symbol="drawMainCircle"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="191" pc="268437809" symbol="drawMainCircle"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="194" pc="268437884" symbol="drawArc"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="195" pc="268437888" symbol="drawArc"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="196" pc="268437896" symbol="drawArc"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="197" pc="268437915" symbol="drawArc"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="198" pc="268437934" symbol="drawArc"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="199" pc="268437951" symbol="drawArc"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="200" pc="268437970" symbol="drawArc"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="201" pc="268437985" symbol="drawArc"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="202" pc="268438010" symbol="drawArc"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="204" pc="268438096" symbol="drawArc"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="206" pc="268438142" symbol="drawArc"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="207" pc="268438147" symbol="drawArc"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="210" pc="268438164" symbol="drawArc"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="211" pc="268438194" symbol="drawArc"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="213" pc="268438275" symbol="drawArc"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameView.mc" lineNum="220" pc="268438368" symbol="onHide"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameMenuDelegate.mc" lineNum="6" pc="268438373" symbol="initialize"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameMenuDelegate.mc" lineNum="7" pc="268438377" symbol="initialize"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameMenuDelegate.mc" lineNum="10" pc="268438396" symbol="onMenuItem"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameMenuDelegate.mc" lineNum="11" pc="268438400" symbol="onMenuItem"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameMenuDelegate.mc" lineNum="12" pc="268438411" symbol="onMenuItem"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameMenuDelegate.mc" lineNum="14" pc="268438446" symbol="onMenuItem"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameDelegate.mc" lineNum="6" pc="268438471" symbol="initialize"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameDelegate.mc" lineNum="7" pc="268438475" symbol="initialize"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameDelegate.mc" lineNum="10" pc="268438494" symbol="onMenu"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameDelegate.mc" lineNum="12" pc="268438498" symbol="onMenu"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameDelegate.mc" lineNum="15" pc="268438502" symbol="onBack"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameDelegate.mc" lineNum="16" pc="268438506" symbol="onBack"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameDelegate.mc" lineNum="19" pc="268438510" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameDelegate.mc" lineNum="20" pc="268438514" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameDelegate.mc" lineNum="21" pc="268438521" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameDelegate.mc" lineNum="22" pc="268438534" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameDelegate.mc" lineNum="23" pc="268438548" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameDelegate.mc" lineNum="26" pc="268438572" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameDelegate.mc" lineNum="29" pc="268438596" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameDelegate.mc" lineNum="32" pc="268438620" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameDelegate.mc" lineNum="34" pc="268438630" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameDelegate.mc" lineNum="35" pc="268438641" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameDelegate.mc" lineNum="36" pc="268438658" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameDelegate.mc" lineNum="38" pc="268438681" symbol="onKeyPressed"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameApp.mc" lineNum="8" pc="268438685" symbol="initialize"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameApp.mc" lineNum="9" pc="268438689" symbol="initialize"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameApp.mc" lineNum="13" pc="268438708" symbol="onStart"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameApp.mc" lineNum="17" pc="268438713" symbol="onStop"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameApp.mc" lineNum="21" pc="268438718" symbol="getInitialView"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameApp.mc" lineNum="22" pc="268438722" symbol="getInitialView"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameApp.mc" lineNum="23" pc="268438752" symbol="getInitialView"/>
+<entry filename="/Users/eranlevy/Documents/ConnectIQ/Projects/ColorMemoryGame/source/ColorMemoryGameApp.mc" lineNum="24" pc="268438782" symbol="getInitialView"/>
+<entry filename="Rez" lineNum="15" pc="268438822" symbol="initialize"/>
+<entry filename="Rez" lineNum="16" pc="268438826" symbol="initialize"/>
+<entry filename="Rez" lineNum="17" pc="268438844" symbol="initialize"/>
+<entry filename="Rez" lineNum="18" pc="268438896" symbol="initialize"/>
+<entry filename="Rez" lineNum="34" pc="268438949" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="36" pc="268438953" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="37" pc="268439116" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="38" pc="268439141" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="39" pc="268439193" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="40" pc="268439309" symbol="MainLayout"/>
+<entry filename="Rez" lineNum="43" pc="268439361" symbol="MainLayout"/>
+</pcToLineNum>
+<symbolTable>
+<entry id="43" method="true" symbol="drawMainCircle"/>
+<entry field="true" id="36" symbol="blinking"/>
+<entry id="8389124" method="true" symbol="onUpdate"/>
+<entry id="8389349" symbol="justification"/>
+<entry field="true" id="29" symbol="colorsOn"/>
+<entry id="11" object="true" symbol="ColorMemoryGameView"/>
+<entry id="14" object="true" symbol="ColorMemoryGameApp"/>
+<entry field="true" id="8" symbol="paused"/>
+<entry id="41" method="true" symbol="blinkTimerCallback"/>
+<entry field="true" id="8388611" symbol="Toybox"/>
+<entry id="21" object="true" symbol="MainMenu"/>
+<entry id="8388770" module="true" symbol="Strings"/>
+<entry id="12" object="true" symbol="ColorMemoryGameMenuDelegate"/>
+<entry id="8389280" method="true" symbol="getInitialView"/>
+<entry field="true" id="28" symbol="blinkTimer"/>
+<entry field="true" id="31" symbol="colorsToRender"/>
+<entry id="22" method="true" symbol="MainLayout"/>
+<entry field="true" id="15" symbol="mainView"/>
+<entry id="8388769" module="true" symbol="Rez"/>
+<entry id="8389123" method="true" symbol="onShow"/>
+<entry field="true" id="9" symbol="playing"/>
+<entry id="8388636" symbol="Attention"/>
+<entry id="8389687" method="true" symbol="drawArc"/>
+<entry id="8388702" method="true" symbol="initialize"/>
+<entry field="true" id="26" symbol="AppName"/>
+<entry field="true" id="34" symbol="blinkIx"/>
+<entry id="8389080" method="true" symbol="onMenu"/>
+<entry field="true" id="30" symbol="colorsOff"/>
+<entry field="true" id="10" symbol="repeating"/>
+<entry id="46" symbol="item_2"/>
+<entry id="45" symbol="item_1"/>
+<entry id="8388641" symbol="Math"/>
+<entry field="true" id="20" symbol="LauncherIcon"/>
+<entry id="8388646" symbol="Timer"/>
+<entry field="true" id="24" symbol="menu_label_2"/>
+<entry id="8389081" method="true" symbol="onBack"/>
+<entry field="true" id="23" symbol="menu_label_1"/>
+<entry id="8389553" method="true" symbol="onKeyPressed"/>
+<entry id="40" method="true" symbol="blinkColor"/>
+<entry id="8389281" method="true" symbol="onStop"/>
+<entry id="42" method="true" symbol="getRandomColor"/>
+<entry id="8389065" symbol="locY"/>
+<entry id="8389064" symbol="locX"/>
+<entry id="8388771" module="true" symbol="Drawables"/>
+<entry id="8389122" method="true" symbol="onLayout"/>
+<entry id="8389279" method="true" symbol="onStart"/>
+<entry field="true" id="19" symbol="id_monkey"/>
+<entry field="true" id="16" symbol="mainDelegate"/>
+<entry id="8389348" symbol="font"/>
+<entry id="38" method="true" symbol="playSequence"/>
+<entry id="37" method="true" symbol="newGame"/>
+<entry id="13" object="true" symbol="ColorMemoryGameDelegate"/>
+<entry id="39" method="true" symbol="sequenceTimerCallback"/>
+<entry id="8389347" symbol="color"/>
+<entry id="8389109" method="true" symbol="onMenuItem"/>
+<entry field="true" id="33" symbol="sequenceIx"/>
+<entry field="true" id="35" symbol="addNumberToSequence"/>
+<entry id="18" module="true" symbol="Layouts"/>
+<entry id="44" symbol="Sys"/>
+<entry field="true" id="25" symbol="prompt"/>
+<entry id="8389125" method="true" symbol="onHide"/>
+<entry id="8389345" symbol="rezId"/>
+<entry id="8389346" symbol="text"/>
+<entry id="8389063" symbol="identifier"/>
+<entry field="true" id="27" symbol="sequenceTimer"/>
+<entry id="17" module="true" symbol="Menus"/>
+<entry id="8388772" module="true" symbol="Fonts"/>
+<entry field="true" id="32" symbol="sequence"/>
+<entry field="true" id="8389487" symbol="state"/>
+</symbolTable>
+<localVars>
+<entry endPc="268435532" name="i" stackId="1" startPc="268435490"/>
+<entry endPc="268436500" name="colorIx" stackId="1" startPc="268436377"/>
+<entry endPc="268437343" name="txt" stackId="6" startPc="268436890"/>
+<entry endPc="268437343" name="textDimensions" stackId="4" startPc="268436890"/>
+<entry endPc="268437343" name="txt2Dim" stackId="7" startPc="268436890"/>
+<entry endPc="268437343" name="scorePos" stackId="5" startPc="268436890"/>
+<entry endPc="268437343" name="scoreTxt" stackId="3" startPc="268436890"/>
+<entry endPc="268437503" name="txt" stackId="8" startPc="268437346"/>
+<entry endPc="268437503" name="txt2Dim" stackId="9" startPc="268437346"/>
+<entry endPc="268437503" name="rectSize" stackId="2" startPc="268436549"/>
+<entry endPc="268437773" name="i" stackId="5" startPc="268437606"/>
+<entry endPc="268437883" name="index" stackId="2" startPc="268437508"/>
+<entry endPc="268437883" name="startAngle" stackId="4" startPc="268437508"/>
+<entry endPc="268437883" name="angle" stackId="3" startPc="268437508"/>
+<entry endPc="268438083" name="angle" stackId="14" startPc="268437985"/>
+<entry endPc="268438096" name="i" stackId="13" startPc="268437985"/>
+<entry endPc="268438275" name="i" stackId="15" startPc="268438194"/>
+<entry endPc="268438367" name="radius" stackId="11" startPc="268437888"/>
+<entry endPc="268438367" name="halfHeight" stackId="9" startPc="268437888"/>
+<entry endPc="268438367" name="points" stackId="8" startPc="268437888"/>
+<entry endPc="268438367" name="arcSize" stackId="12" startPc="268437888"/>
+<entry endPc="268438367" name="halfWidth" stackId="10" startPc="268437888"/>
+<entry endPc="268438678" name="app" stackId="4" startPc="268438641"/>
+<entry endPc="268438684" name="keyIndex" stackId="2" startPc="268438514"/>
+<entry endPc="268438684" name="evtKey" stackId="3" startPc="268438514"/>
+<entry endPc="268439388" name="rez_cmp_local_bitmap_8QZ057M7T6_fontHeight" stackId="3" startPc="268438953"/>
+<entry endPc="268439388" name="rez_cmp_local_bitmap_8QZ057M7T6" stackId="2" startPc="268438953"/>
+<entry endPc="268439388" name="rez_cmp_local_bitmap_id_monkey" stackId="4" startPc="268438953"/>
+</localVars>
+<annotations/>
+<functions>
+<functionEntry name="initialize" parent="ColorMemoryGameView">
+<documentation/>
+</functionEntry>
+<functionEntry name="onKeyPressed" parent="ColorMemoryGameView">
+<param id="keyIndex"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="onLayout" parent="ColorMemoryGameView">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="newGame" parent="ColorMemoryGameView">
+<documentation/>
+</functionEntry>
+<functionEntry name="playSequence" parent="ColorMemoryGameView">
+<documentation/>
+</functionEntry>
+<functionEntry name="sequenceTimerCallback" parent="ColorMemoryGameView">
+<documentation/>
+</functionEntry>
+<functionEntry name="blinkColor" parent="ColorMemoryGameView">
+<param id="index"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="blinkTimerCallback" parent="ColorMemoryGameView">
+<documentation/>
+</functionEntry>
+<functionEntry name="getRandomColor" parent="ColorMemoryGameView">
+<documentation/>
+</functionEntry>
+<functionEntry name="onShow" parent="ColorMemoryGameView">
+<documentation/>
+</functionEntry>
+<functionEntry name="onUpdate" parent="ColorMemoryGameView">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="drawMainCircle" parent="ColorMemoryGameView">
+<param id="dc"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="drawArc" parent="ColorMemoryGameView">
+<param id="dc"/>
+<param id="centerX"/>
+<param id="centerY"/>
+<param id="radius"/>
+<param id="startAngle"/>
+<param id="endAngle"/>
+<param id="fill"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="onHide" parent="ColorMemoryGameView">
+<documentation/>
+</functionEntry>
+<functionEntry name="initialize" parent="ColorMemoryGameMenuDelegate">
+<documentation/>
+</functionEntry>
+<functionEntry name="onMenuItem" parent="ColorMemoryGameMenuDelegate">
+<param id="item"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="initialize" parent="ColorMemoryGameDelegate">
+<documentation/>
+</functionEntry>
+<functionEntry name="onMenu" parent="ColorMemoryGameDelegate">
+<documentation/>
+</functionEntry>
+<functionEntry name="onBack" parent="ColorMemoryGameDelegate">
+<documentation/>
+</functionEntry>
+<functionEntry name="onKeyPressed" parent="ColorMemoryGameDelegate">
+<param id="evt"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="initialize" parent="ColorMemoryGameApp">
+<documentation/>
+</functionEntry>
+<functionEntry name="onStart" parent="ColorMemoryGameApp">
+<param id="state"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="onStop" parent="ColorMemoryGameApp">
+<param id="state"/>
+<documentation/>
+</functionEntry>
+<functionEntry name="getInitialView" parent="ColorMemoryGameApp">
+<documentation/>
+</functionEntry>
+<functionEntry name="initialize" parent="MainMenu">
+<documentation/>
+</functionEntry>
+<functionEntry name="MainLayout" parent="Layouts">
+<param id="dc"/>
+<documentation><![CDATA[<div class="description"> Draw the layout<br/> param The context<br/></div>]]></documentation>
+</functionEntry>
+</functions>
+</debugInfo>
