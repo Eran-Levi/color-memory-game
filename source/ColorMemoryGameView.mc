@@ -3,11 +3,19 @@ using Toybox.Graphics as Gfx;
 using Toybox.Timer as Timer;
 using Toybox.Attention as Attention;
 using Toybox.Math as Math;
+using Toybox.System as System;
 
 enum {
 	paused,
 	playing,
 	repeating
+}
+
+//Actions that should run after a blink event is done
+enum {
+	AfterBlink_NoAction,
+	AfterBlink_AddNumberToSequence,
+	AfterBlink_SwitchToRepeat
 }
 class ColorMemoryGameView extends Ui.View {
 
@@ -15,13 +23,18 @@ class ColorMemoryGameView extends Ui.View {
 	var blinkTimer;
 	var colorsOn = [Gfx.COLOR_GREEN, Gfx.COLOR_RED, Gfx.COLOR_BLUE, Gfx.COLOR_ORANGE];
 	var colorsOff = [Gfx.COLOR_DK_GREEN, Gfx.COLOR_DK_RED, Gfx.COLOR_DK_BLUE, Gfx.COLOR_YELLOW];
+	var sounds = [Attention.TONE_KEY, Attention.TONE_MSG, Attention.TONE_START, Attention.TONE_LOUD_BEEP];
+	var toneFailed = Attention.TONE_FAILURE;
 	var colorsToRender = [];
 	var sequence = [];
 	var sequenceIx = 0;
 	var blinkIx = 0;
 	var state = paused;
-	var addNumberToSequence = false;
+	var afterBlinkAction = AfterBlink_NoAction;
 	var blinking = false;
+	var playSounds = false;
+	var lastScore = -1;
+	var highScore = -1;
 	
     function initialize() {
     	for (var i=0; i < colorsOff.size(); ++i) {
@@ -40,21 +53,31 @@ class ColorMemoryGameView extends Ui.View {
 				blinkColor(sequence[sequenceIx]);
 				++sequenceIx;
 				if (sequenceIx >= sequence.size()) {
-					addNumberToSequence = true;
+					afterBlinkAction = AfterBlink_AddNumberToSequence;
 				}
 			}
 			else {
-				System.println("Wrong!!!");
+				lastScore = sequence.size() - 1;
+				if (lastScore > highScore) {
+					highScore = lastScore;
+				}
+				if (playSounds) {
+					Attention.playTone(toneFailed);
+				}
 				state = paused;
 				Ui.requestUpdate();				
 			}
 		}
 		else if (state == paused) {
 			if (keyIndex == 2) {
-				Sys.exit();
+				System.exit();
 			}
 			else if (keyIndex == 1) {
 				newGame();
+			}
+			else if (keyIndex == 3) {
+				playSounds = !playSounds;
+				Ui.requestUpdate();
 			}
 		}
 	}
@@ -78,10 +101,8 @@ class ColorMemoryGameView extends Ui.View {
 	function sequenceTimerCallback() {
 		blinkColor(sequence[sequenceIx]);
 		if (sequenceIx >= sequence.size() - 1) {
+			afterBlinkAction = AfterBlink_SwitchToRepeat;
 			sequenceTimer.stop();
-			state = repeating;
-			sequenceIx = 0;
-			Ui.requestUpdate();
 		}
 		else {
 			++sequenceIx;
@@ -90,6 +111,9 @@ class ColorMemoryGameView extends Ui.View {
 	
 	function blinkColor(index) {
 		blinking = true;
+		if (playSounds) {		
+        	Attention.playTone(sounds[index]);
+        }
 		blinkIx = index;
 		colorsToRender[blinkIx] = colorsOn[blinkIx];
         Ui.requestUpdate();
@@ -101,10 +125,16 @@ class ColorMemoryGameView extends Ui.View {
 		colorsToRender[colorIx] = colorsOff[colorIx];
         Ui.requestUpdate();
 		blinking = false;
-        if (addNumberToSequence) {
-        	addNumberToSequence = false;
+        if (afterBlinkAction == AfterBlink_AddNumberToSequence) {
+			afterBlinkAction = AfterBlink_NoAction;
 			sequence.add(getRandomColor());
 			playSequence();
+		}
+        else if (afterBlinkAction == AfterBlink_SwitchToRepeat) {
+			afterBlinkAction = AfterBlink_NoAction;
+			state = repeating;
+			sequenceIx = 0;
+			Ui.requestUpdate();
 		}
 	}
 	
@@ -140,8 +170,8 @@ class ColorMemoryGameView extends Ui.View {
 	     	dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_BLACK);
 	     	var scoreTxt = "Score: " + (sequence.size() - 1);
 	        var textDimensions = dc.getTextDimensions(scoreTxt, Gfx.FONT_TINY);
-	        var scorePos = dc.getHeight() / 2 - textDimensions[1] / 2;
-	        dc.drawText(dc.getWidth() / 2, scorePos, 
+	        var scoreYPos = dc.getHeight() / 2 - textDimensions[1] / 2 - 10;
+	        dc.drawText(dc.getWidth() / 2, scoreYPos, 
 	        	Gfx.FONT_TINY, scoreTxt, Gfx.TEXT_JUSTIFY_CENTER);
 			
 	     	var txt;
@@ -158,7 +188,7 @@ class ColorMemoryGameView extends Ui.View {
 		     	txt = "Game Over";
 			}
 	        var txt2Dim = dc.getTextDimensions(txt, Gfx.FONT_TINY);
-	        dc.drawText(dc.getWidth() / 2, scorePos + txt2Dim[1], 
+	        dc.drawText(dc.getWidth() / 2, scoreYPos + txt2Dim[1], 
 	        	Gfx.FONT_TINY, txt, Gfx.TEXT_JUSTIFY_CENTER);
         }
         else {
@@ -167,6 +197,26 @@ class ColorMemoryGameView extends Ui.View {
 	        var txt2Dim = dc.getTextDimensions(txt, Gfx.FONT_MEDIUM);
 	        dc.drawText(dc.getWidth() / 2, dc.getHeight() / 2 - txt2Dim[1] / 2, 
 	        	Gfx.FONT_MEDIUM, txt, Gfx.TEXT_JUSTIFY_CENTER);
+	        	
+			dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
+			txt = playSounds ? "Sound On" : "Sound Off";
+	        txt2Dim = dc.getTextDimensions(txt, Gfx.FONT_MEDIUM);
+	        dc.drawText(dc.getWidth() / 2, dc.getHeight() - txt2Dim[1] - 30, 
+	        	Gfx.FONT_MEDIUM, txt, Gfx.TEXT_JUSTIFY_CENTER);
+	        
+	        if (lastScore >= 0) {
+				txt = "Score: " + lastScore;
+		        txt2Dim = dc.getTextDimensions(txt, Gfx.FONT_MEDIUM);
+		        var vMargin = 8;
+		        dc.drawText(dc.getWidth() / 2, vMargin, 
+		        	Gfx.FONT_MEDIUM, txt, Gfx.TEXT_JUSTIFY_CENTER);
+		        	
+				txt = "High Score: " + (highScore >= lastScore ? highScore : lastScore);
+		        txt2Dim = dc.getTextDimensions(txt, Gfx.FONT_MEDIUM);
+		        dc.drawText(dc.getWidth() / 2, txt2Dim[1] + vMargin, 
+		        	Gfx.FONT_MEDIUM, txt, Gfx.TEXT_JUSTIFY_CENTER);				        
+		        	
+	        }	        
         }
     }
 

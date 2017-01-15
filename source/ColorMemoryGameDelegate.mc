@@ -8,7 +8,6 @@ class ColorMemoryGameDelegate extends Ui.BehaviorDelegate {
     }
 
     function onMenu() {
-        //Ui.pushView(new Rez.Menus.MainMenu(), new ColorMemoryGameMenuDelegate(), Ui.SLIDE_UP);
         return true;
     }
     
