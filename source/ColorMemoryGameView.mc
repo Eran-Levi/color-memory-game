@@ -23,7 +23,7 @@ class ColorMemoryGameView extends Ui.View {
 	var blinkTimer;
 	var colorsOn = [Gfx.COLOR_GREEN, Gfx.COLOR_RED, Gfx.COLOR_BLUE, Gfx.COLOR_ORANGE];
 	var colorsOff = [Gfx.COLOR_DK_GREEN, Gfx.COLOR_DK_RED, Gfx.COLOR_DK_BLUE, Gfx.COLOR_YELLOW];
-	var sounds = [Attention.TONE_KEY, Attention.TONE_MSG, Attention.TONE_START, Attention.TONE_LOUD_BEEP];
+	var sounds = [Attention.TONE_KEY, Attention.TONE_MSG, Attention.TONE_ERROR, Attention.TONE_DISTANCE_ALERT];
 	var toneFailed = Attention.TONE_FAILURE;
 	var colorsToRender = [];
 	var sequence = [];
