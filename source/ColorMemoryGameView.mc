@@ -1,3 +1,4 @@
+using Toybox.Application as App;
 using Toybox.WatchUi as Ui;
 using Toybox.Graphics as Gfx;
 using Toybox.Timer as Timer;
@@ -23,7 +24,7 @@ class ColorMemoryGameView extends Ui.View {
 	var blinkTimer;
 	var colorsOn = [Gfx.COLOR_GREEN, Gfx.COLOR_RED, Gfx.COLOR_BLUE, Gfx.COLOR_ORANGE];
 	var colorsOff = [Gfx.COLOR_DK_GREEN, Gfx.COLOR_DK_RED, Gfx.COLOR_DK_BLUE, Gfx.COLOR_YELLOW];
-	var sounds = [Attention.TONE_KEY, Attention.TONE_MSG, Attention.TONE_ERROR, Attention.TONE_DISTANCE_ALERT];
+	var sounds = [Attention.TONE_KEY, Attention.TONE_ERROR, Attention.TONE_MSG, Attention.TONE_LOUD_BEEP];
 	var toneFailed = Attention.TONE_FAILURE;
 	var colorsToRender = [];
 	var sequence = [];
@@ -37,6 +38,10 @@ class ColorMemoryGameView extends Ui.View {
 	var highScore = -1;
 	
     function initialize() {
+		var savedHighScore = App.getApp().getProperty("highScore");
+		if (savedHighScore) {
+			highScore = savedHighScore;
+		}    
     	for (var i=0; i < colorsOff.size(); ++i) {
     		colorsToRender.add(colorsOff[i]);
     	}
@@ -60,6 +65,7 @@ class ColorMemoryGameView extends Ui.View {
 				lastScore = sequence.size() - 1;
 				if (lastScore > highScore) {
 					highScore = lastScore;
+		    		App.getApp().setProperty("highScore", highScore);
 				}
 				if (playSounds) {
 					Attention.playTone(toneFailed);
@@ -95,7 +101,7 @@ class ColorMemoryGameView extends Ui.View {
 	function playSequence() {
 		state = playing;
 		sequenceIx = 0;
-        sequenceTimer.start( method(:sequenceTimerCallback), 800, true );        
+        sequenceTimer.start( method(:sequenceTimerCallback), 600, true );        
 	}
 	
 	function sequenceTimerCallback() {
@@ -117,7 +123,7 @@ class ColorMemoryGameView extends Ui.View {
 		blinkIx = index;
 		colorsToRender[blinkIx] = colorsOn[blinkIx];
         Ui.requestUpdate();
-		blinkTimer.start(method(:blinkTimerCallback), 400, false);
+		blinkTimer.start(method(:blinkTimerCallback), 250, false);
 	}
 	
 	function blinkTimerCallback() {
@@ -204,19 +210,26 @@ class ColorMemoryGameView extends Ui.View {
 	        dc.drawText(dc.getWidth() / 2, dc.getHeight() - txt2Dim[1] - 30, 
 	        	Gfx.FONT_MEDIUM, txt, Gfx.TEXT_JUSTIFY_CENTER);
 	        
+		    var vMargin = 8;
 	        if (lastScore >= 0) {
 				txt = "Score: " + lastScore;
-		        txt2Dim = dc.getTextDimensions(txt, Gfx.FONT_MEDIUM);
-		        var vMargin = 8;
 		        dc.drawText(dc.getWidth() / 2, vMargin, 
-		        	Gfx.FONT_MEDIUM, txt, Gfx.TEXT_JUSTIFY_CENTER);
-		        	
-				txt = "High Score: " + (highScore >= lastScore ? highScore : lastScore);
+		        	Gfx.FONT_MEDIUM, txt, Gfx.TEXT_JUSTIFY_CENTER);		        			        	
+	        }
+	        
+	        if (highScore >= 0) {
+				txt = "High Score: " + highScore;
 		        txt2Dim = dc.getTextDimensions(txt, Gfx.FONT_MEDIUM);
-		        dc.drawText(dc.getWidth() / 2, txt2Dim[1] + vMargin, 
+		        var vPos = txt2Dim[1];
+		        if (lastScore >= 0) {
+		        	vPos += vMargin;
+		        }
+		        else {
+		        	vPos -= 5;
+		        }
+		        dc.drawText(dc.getWidth() / 2, vPos, 
 		        	Gfx.FONT_MEDIUM, txt, Gfx.TEXT_JUSTIFY_CENTER);				        
-		        	
-	        }	        
+	        }
         }
     }
 
