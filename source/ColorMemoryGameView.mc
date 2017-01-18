@@ -166,7 +166,7 @@ class ColorMemoryGameView extends Ui.View {
 		drawMainCircle(dc);
 		
      	dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_BLACK);
-        dc.fillCircle(dc.getHeight() / 2, dc.getWidth() / 2, 40);
+        dc.fillCircle(dc.getWidth() / 2, dc.getHeight() / 2, 40);
         var rectSize = 8;
         dc.fillRectangle(dc.getWidth() / 2 - rectSize / 2, 0, rectSize, dc.getHeight());
         dc.fillRectangle(0, dc.getHeight() / 2 - rectSize / 2, dc.getWidth(), rectSize);
