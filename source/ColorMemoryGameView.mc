@@ -184,7 +184,7 @@ class ColorMemoryGameView extends Ui.View {
         
         dc.setPenWidth(1);
         if (state != paused) {
-        	drawScore(dc);
+        	drawInnerCircleData(dc);
         }
         else {
         	drawPauseScreenData(dc);
@@ -235,7 +235,7 @@ class ColorMemoryGameView extends Ui.View {
         }
     }
 
-	function drawScore(dc) {
+	function drawInnerCircleData(dc) {
      	dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_BLACK);
      	var scoreTxt = "Score: " + (sequence.size() - 1);
         var scoreYPos = dcCenterY - scoreHeight - 10;
