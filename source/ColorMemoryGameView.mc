@@ -36,6 +36,11 @@ class ColorMemoryGameView extends Ui.View {
 	var playSounds = false;
 	var lastScore = -1;
 	var highScore = -1;
+	var dcCenterX = 0;
+	var dcCenterY = 0;
+	var innerCircleRad;
+	var scoreHeight;
+	var SCORE_FONT = Gfx.FONT_TINY;
 	
     function initialize() {
 		var savedHighScore = App.getApp().getProperty("highScore");
@@ -88,7 +93,13 @@ class ColorMemoryGameView extends Ui.View {
 		}
 	}
 	
-    function onLayout(dc) {        
+    function onLayout(dc) {
+    	dcCenterX = dc.getWidth() / 2;
+    	dcCenterY = dc.getHeight() / 2;
+    	
+        var scoreDimensions = dc.getTextDimensions("Score: 10000", SCORE_FONT);
+        innerCircleRad = scoreDimensions[0] / 2 - 2;
+        scoreHeight = scoreDimensions[1] / 2;
     }
 	
 	function newGame() {
@@ -166,70 +177,17 @@ class ColorMemoryGameView extends Ui.View {
 		drawMainCircle(dc);
 		
      	dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_BLACK);
-        dc.fillCircle(dc.getWidth() / 2, dc.getHeight() / 2, 40);
+        dc.fillCircle(dcCenterX, dcCenterY, innerCircleRad);
         var rectSize = 8;
-        dc.fillRectangle(dc.getWidth() / 2 - rectSize / 2, 0, rectSize, dc.getHeight());
-        dc.fillRectangle(0, dc.getHeight() / 2 - rectSize / 2, dc.getWidth(), rectSize);
+        dc.fillRectangle(dcCenterX - rectSize / 2, 0, rectSize, dc.getHeight());
+        dc.fillRectangle(0, dcCenterY - rectSize / 2, dc.getWidth(), rectSize);
         
         dc.setPenWidth(1);
         if (state != paused) {
-	     	dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_BLACK);
-	     	var scoreTxt = "Score: " + (sequence.size() - 1);
-	        var textDimensions = dc.getTextDimensions(scoreTxt, Gfx.FONT_TINY);
-	        var scoreYPos = dc.getHeight() / 2 - textDimensions[1] / 2 - 10;
-	        dc.drawText(dc.getWidth() / 2, scoreYPos, 
-	        	Gfx.FONT_TINY, scoreTxt, Gfx.TEXT_JUSTIFY_CENTER);
-			
-	     	var txt;
-			if (state == playing) {
-		     	dc.setColor(Gfx.COLOR_RED, Gfx.COLOR_BLACK);
-		     	txt = "Listen";
-			}
-			else if (state == repeating) {
-		     	dc.setColor(Gfx.COLOR_GREEN, Gfx.COLOR_BLACK);
-		     	txt = "Repeat";
-			} 
-			else {
-		     	dc.setColor(Gfx.COLOR_RED, Gfx.COLOR_BLACK);
-		     	txt = "Game Over";
-			}
-	        var txt2Dim = dc.getTextDimensions(txt, Gfx.FONT_TINY);
-	        dc.drawText(dc.getWidth() / 2, scoreYPos + txt2Dim[1], 
-	        	Gfx.FONT_TINY, txt, Gfx.TEXT_JUSTIFY_CENTER);
+        	drawScore(dc);
         }
         else {
-			dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_BLACK);
-			var txt = "Press START"; 
-	        var txt2Dim = dc.getTextDimensions(txt, Gfx.FONT_MEDIUM);
-	        dc.drawText(dc.getWidth() / 2, dc.getHeight() / 2 - txt2Dim[1] / 2, 
-	        	Gfx.FONT_MEDIUM, txt, Gfx.TEXT_JUSTIFY_CENTER);
-	        	
-			dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
-			txt = playSounds ? "Sound On" : "Sound Off";
-	        txt2Dim = dc.getTextDimensions(txt, Gfx.FONT_MEDIUM);
-	        dc.drawText(dc.getWidth() / 2, dc.getHeight() - txt2Dim[1] - 30, 
-	        	Gfx.FONT_MEDIUM, txt, Gfx.TEXT_JUSTIFY_CENTER);
-	        
-		    var vMargin = 8;
-	        if (lastScore >= 0) {
-				txt = "Score: " + lastScore;
-		        dc.drawText(dc.getWidth() / 2, vMargin, 
-		        	Gfx.FONT_MEDIUM, txt, Gfx.TEXT_JUSTIFY_CENTER);		        			        	
-	        }
-	        
-	        if (highScore >= 0) {
-				txt = "High Score: " + highScore;
-		        txt2Dim = dc.getTextDimensions(txt, Gfx.FONT_MEDIUM);
-		        var vPos = txt2Dim[1];
-		        if (lastScore >= 0) {
-		        	vPos += vMargin;
-		        }
-		        else {
-		        	vPos -= 5;
-		        }
-		        dc.drawText(dc.getWidth() / 2, vPos, 
-		        	Gfx.FONT_MEDIUM, txt, Gfx.TEXT_JUSTIFY_CENTER);				        
-	        }
+        	drawPauseScreenData(dc);
         }
     }
 
@@ -245,19 +203,19 @@ class ColorMemoryGameView extends Ui.View {
             }
 
             dc.setColor(colorsToRender[index], colorsToRender[index]);
-            drawArc(dc, dc.getHeight()/2, dc.getWidth()/2, 4, (i * angle) + startAngle, ((i + 1 ) * angle) + startAngle, true);
+            drawArc(dc, dcCenterY, dcCenterX, 4, (i * angle) + startAngle, ((i + 1 ) * angle) + startAngle, true);
             ++index;
         }
 
         // highlight the selected one
         dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_WHITE);
-        drawArc(dc, dc.getHeight()/2, dc.getWidth()/2, dc.getHeight() / 2, startAngle, startAngle + angle, false);
+        drawArc(dc, dcCenterY, dcCenterX, dcCenterY, startAngle, startAngle + angle, false);
     }
 	
     function drawArc(dc, centerX, centerY, radius, startAngle, endAngle, fill) {
         var points = new [30];
-        var halfHeight = dc.getHeight() / 2;
-        var halfWidth = dc.getWidth() / 2;
+        var halfHeight = dcCenterY;
+        var halfWidth = dcCenterX;
         var radius = ( halfHeight > halfWidth ) ? halfWidth : halfHeight;
         var arcSize = points.size() - 2;
         for(var i = arcSize; i >= 0; --i) {
@@ -277,6 +235,66 @@ class ColorMemoryGameView extends Ui.View {
         }
     }
 
+	function drawScore(dc) {
+     	dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_BLACK);
+     	var scoreTxt = "Score: " + (sequence.size() - 1);
+        var scoreYPos = dcCenterY - scoreHeight - 10;
+        dc.drawText(dcCenterX, scoreYPos, 
+        	Gfx.FONT_TINY, scoreTxt, Gfx.TEXT_JUSTIFY_CENTER);
+		
+     	var txt;
+		if (state == playing) {
+	     	dc.setColor(Gfx.COLOR_RED, Gfx.COLOR_BLACK);
+	     	txt = "Listen";
+		}
+		else if (state == repeating) {
+	     	dc.setColor(Gfx.COLOR_GREEN, Gfx.COLOR_BLACK);
+	     	txt = "Repeat";
+		} 
+		else {
+	     	dc.setColor(Gfx.COLOR_RED, Gfx.COLOR_BLACK);
+	     	txt = "Game Over";
+		}
+        var txt2Dim = dc.getTextDimensions(txt, Gfx.FONT_TINY);
+        dc.drawText(dcCenterX, scoreYPos + txt2Dim[1], 
+        	Gfx.FONT_TINY, txt, Gfx.TEXT_JUSTIFY_CENTER);
+	}
+	
+	function drawPauseScreenData(dc) {
+		dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_BLACK);
+		var txt = "Press START"; 
+        var txt2Dim = dc.getTextDimensions(txt, Gfx.FONT_MEDIUM);
+        dc.drawText(dcCenterX, dcCenterY - txt2Dim[1] / 2, 
+        	Gfx.FONT_MEDIUM, txt, Gfx.TEXT_JUSTIFY_CENTER);
+        	
+		dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
+		txt = playSounds ? "Sound On" : "Sound Off";
+        txt2Dim = dc.getTextDimensions(txt, Gfx.FONT_MEDIUM);
+        dc.drawText(dcCenterX, dc.getHeight() - txt2Dim[1] - 30, 
+        	Gfx.FONT_MEDIUM, txt, Gfx.TEXT_JUSTIFY_CENTER);
+        
+	    var vMargin = 8;
+        if (lastScore >= 0) {
+			txt = "Score: " + lastScore;
+	        dc.drawText(dcCenterX, vMargin, 
+	        	Gfx.FONT_MEDIUM, txt, Gfx.TEXT_JUSTIFY_CENTER);		        			        	
+        }
+        
+        if (highScore >= 0) {
+			txt = "High Score: " + highScore;
+	        txt2Dim = dc.getTextDimensions(txt, Gfx.FONT_MEDIUM);
+	        var vPos = txt2Dim[1];
+	        if (lastScore >= 0) {
+	        	vPos += vMargin;
+	        }
+	        else {
+	        	vPos -= 5;
+	        }
+	        dc.drawText(dcCenterX, vPos, 
+	        	Gfx.FONT_MEDIUM, txt, Gfx.TEXT_JUSTIFY_CENTER);				        
+        }
+	}
+	
     // Called when this View is removed from the screen. Save the
     // state of this View here. This includes freeing resources from
     // memory.
