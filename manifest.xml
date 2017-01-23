@@ -3,7 +3,10 @@
 
         <iq:products>
             <iq:product id="round_watch"/>
-            <iq:product id="round-240x240"/>
+            <iq:product id="fenix5"/>
+            <iq:product id="fenix5x"/>
+            <iq:product id="fenix5s"/>
+            <iq:product id="semi_round_watch"/>
             <iq:product id="fr235"/>
             <iq:product id="fr735xt"/>
             <iq:product id="fr230"/>

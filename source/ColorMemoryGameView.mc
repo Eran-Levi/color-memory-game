@@ -9,7 +9,8 @@ using Toybox.System as System;
 enum {
 	paused,
 	playing,
-	repeating
+	repeating,
+	gameover
 }
 
 //Actions that should run after a blink event is done
@@ -18,10 +19,16 @@ enum {
 	AfterBlink_AddNumberToSequence,
 	AfterBlink_SwitchToRepeat
 }
-class ColorMemoryGameView extends Ui.View {
+var SCORE_FONT = Gfx.FONT_TINY;
+var TIMES_TO_BLINK_GAME_OVER = 3;
 
-	var sequenceTimer;
-	var blinkTimer;
+//Timings
+var BLINK_COLOR_MS = 250;
+var PLAY_SEQUENCE_MS = 600;
+var GAME_OVER_SEQUENCE_MS = BLINK_COLOR_MS + 120;
+
+class ColorMemoryGameView extends Ui.View {
+	var sequenceTimer, blinkTimer, gameOverTimer;
 	var colorsOn = [Gfx.COLOR_GREEN, Gfx.COLOR_RED, Gfx.COLOR_BLUE, Gfx.COLOR_ORANGE];
 	var colorsOff = [Gfx.COLOR_DK_GREEN, Gfx.COLOR_DK_RED, Gfx.COLOR_DK_BLUE, Gfx.COLOR_YELLOW];
 	var sounds = [Attention.TONE_KEY, Attention.TONE_ERROR, Attention.TONE_MSG, Attention.TONE_LOUD_BEEP];
@@ -34,13 +41,11 @@ class ColorMemoryGameView extends Ui.View {
 	var afterBlinkAction = AfterBlink_NoAction;
 	var blinking = false;
 	var playSounds = false;
-	var lastScore = -1;
-	var highScore = -1;
-	var dcCenterX = 0;
-	var dcCenterY = 0;
+	var lastScore = -1, highScore = -1;
+	var dcCenterX = 0, dcCenterY = 0;
 	var innerCircleRad;
 	var scoreHeight;
-	var SCORE_FONT = Gfx.FONT_TINY;
+	var gameOverBlinkedTimes = 0;	
 	
     function initialize() {
 		var savedHighScore = App.getApp().getProperty("highScore");
@@ -52,6 +57,8 @@ class ColorMemoryGameView extends Ui.View {
     	}
         sequenceTimer = new Timer.Timer();
         blinkTimer = new Timer.Timer();
+        gameOverTimer = new Timer.Timer();
+        
     	Math.srand(System.getTimer());    	
     	
         View.initialize();
@@ -67,21 +74,12 @@ class ColorMemoryGameView extends Ui.View {
 				}
 			}
 			else {
-				lastScore = sequence.size() - 1;
-				if (lastScore > highScore) {
-					highScore = lastScore;
-		    		App.getApp().setProperty("highScore", highScore);
-				}
-				if (playSounds) {
-					Attention.playTone(toneFailed);
-				}
-				state = paused;
-				Ui.requestUpdate();				
+				gameOver();
 			}
 		}
 		else if (state == paused) {
 			if (keyIndex == 2) {
-				System.exit();
+				Ui.popView(Ui.SLIDE_IMMEDIATE);
 			}
 			else if (keyIndex == 1) {
 				newGame();
@@ -109,10 +107,25 @@ class ColorMemoryGameView extends Ui.View {
 		Ui.requestUpdate();
 	}
 	
+	function gameOver() {
+		lastScore = sequence.size() - 1;
+		if (lastScore > highScore) {
+			highScore = lastScore;
+			App.getApp().setProperty("highScore", highScore);
+		}
+		if (playSounds) {
+			Attention.playTone(toneFailed);
+		}
+		state = gameover;
+		gameOverBlinkedTimes = 0;
+		gameOverTimerCallback();
+		gameOverTimer.start( method(:gameOverTimerCallback), GAME_OVER_SEQUENCE_MS, true );
+	}
+	
 	function playSequence() {
 		state = playing;
 		sequenceIx = 0;
-        sequenceTimer.start( method(:sequenceTimerCallback), 600, true );        
+        sequenceTimer.start( method(:sequenceTimerCallback), PLAY_SEQUENCE_MS, true );        
 	}
 	
 	function sequenceTimerCallback() {
@@ -126,15 +139,27 @@ class ColorMemoryGameView extends Ui.View {
 		}
 	}
 	
+	function gameOverTimerCallback() {
+		++gameOverBlinkedTimes;
+		if (gameOverBlinkedTimes > TIMES_TO_BLINK_GAME_OVER) {
+			gameOverTimer.stop();
+			state = paused;
+			Ui.requestUpdate();
+		}
+		else {
+			blinkColor(sequence[sequenceIx]);
+		}
+	}
+	
 	function blinkColor(index) {
 		blinking = true;
-		if (playSounds) {		
+		if (playSounds && state != gameover) {		
         	Attention.playTone(sounds[index]);
         }
 		blinkIx = index;
 		colorsToRender[blinkIx] = colorsOn[blinkIx];
         Ui.requestUpdate();
-		blinkTimer.start(method(:blinkTimerCallback), 250, false);
+		blinkTimer.start(method(:blinkTimerCallback), BLINK_COLOR_MS, false);
 	}
 	
 	function blinkTimerCallback() {
@@ -247,7 +272,7 @@ class ColorMemoryGameView extends Ui.View {
 	     	dc.setColor(Gfx.COLOR_RED, Gfx.COLOR_BLACK);
 	     	txt = "Listen";
 		}
-		else if (state == repeating) {
+		else if (state == repeating || state == gameover) {
 	     	dc.setColor(Gfx.COLOR_GREEN, Gfx.COLOR_BLACK);
 	     	txt = "Repeat";
 		} 
