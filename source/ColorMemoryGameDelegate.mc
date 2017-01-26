@@ -2,9 +2,8 @@ using Toybox.WatchUi as Ui;
 using Toybox.Application as App;
 
 class ColorMemoryGameDelegate extends Ui.BehaviorDelegate {
-
     function initialize() {
-        BehaviorDelegate.initialize();
+        BehaviorDelegate.initialize();        
     }
 
     function onMenu() {
@@ -12,7 +11,10 @@ class ColorMemoryGameDelegate extends Ui.BehaviorDelegate {
     }
     
     function onBack() {
-        return true;
+    	if (!isTouchScreen) {
+        	return true;
+        }
+        return false;
     }
 
     function onKeyPressed(evt) {
@@ -21,7 +23,7 @@ class ColorMemoryGameDelegate extends Ui.BehaviorDelegate {
     	if (evtKey == KEY_ENTER) {
     		keyIndex = 1;
 		}
-    	else if (evtKey == KEY_ESC) {
+    	else if (evtKey == KEY_ESC && !isTouchScreen) {
     		keyIndex = 2;
     	}
     	else if (evtKey == KEY_UP) {
@@ -31,10 +33,21 @@ class ColorMemoryGameDelegate extends Ui.BehaviorDelegate {
     		keyIndex = 3;
     	}
     	if (keyIndex >= 0) {
-	        var app = App.getApp();
-	        app.mainView.onKeyPressed(keyIndex);
+	        App.getApp().mainView.onKeyPressed(keyIndex);
+        	return true;
     	}
+    	return false;
+    }
+
+    // Handle touchscreen taps
+    function onTap(evt) {
+        if (Ui.CLICK_TYPE_TAP == evt.getType()) {
+            var coords = evt.getCoordinates();
+            App.getApp().mainView.onScreenTap(coords);
+        }
         return true;
     }
 
+	function tapCoordinatesToIndex() {
+	}
 }

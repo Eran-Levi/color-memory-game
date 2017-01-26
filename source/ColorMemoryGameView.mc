@@ -19,7 +19,11 @@ enum {
 	AfterBlink_AddNumberToSequence,
 	AfterBlink_SwitchToRepeat
 }
+
+//Fonts
 var SCORE_FONT = Gfx.FONT_TINY;
+var SOUND_STATUS_FONT = Gfx.FONT_MEDIUM;
+
 var TIMES_TO_BLINK_GAME_OVER = 3;
 
 //Timings
@@ -27,12 +31,14 @@ var BLINK_COLOR_MS = 250;
 var PLAY_SEQUENCE_MS = 600;
 var GAME_OVER_SEQUENCE_MS = BLINK_COLOR_MS + 120;
 
+var SOUND_STATUS_MARGIN = 30;
+
 class ColorMemoryGameView extends Ui.View {
 	var sequenceTimer, blinkTimer, gameOverTimer;
 	var colorsOn = [Gfx.COLOR_GREEN, Gfx.COLOR_RED, Gfx.COLOR_BLUE, Gfx.COLOR_ORANGE];
 	var colorsOff = [Gfx.COLOR_DK_GREEN, Gfx.COLOR_DK_RED, Gfx.COLOR_DK_BLUE, Gfx.COLOR_YELLOW];
-	var sounds = [Attention.TONE_KEY, Attention.TONE_ERROR, Attention.TONE_MSG, Attention.TONE_LOUD_BEEP];
-	var toneFailed = Attention.TONE_FAILURE;
+	var sounds;
+	var toneFailed;
 	var colorsToRender = [];
 	var sequence = [];
 	var sequenceIx = 0;
@@ -45,9 +51,14 @@ class ColorMemoryGameView extends Ui.View {
 	var dcCenterX = 0, dcCenterY = 0;
 	var innerCircleRad;
 	var scoreHeight;
-	var gameOverBlinkedTimes = 0;	
+	var gameOverBlinkedTimes = 0;
+	var soundStatusVPos = 0, soundStatusDim = [0, 0];
 	
     function initialize() {
+        if (supportsSound) {
+    		sounds = [Attention.TONE_KEY, Attention.TONE_ERROR, Attention.TONE_MSG, Attention.TONE_LOUD_BEEP];
+    		toneFailed = Attention.TONE_FAILURE;
+    	}
 		var savedHighScore = App.getApp().getProperty("highScore");
 		if (savedHighScore) {
 			highScore = savedHighScore;
@@ -85,19 +96,59 @@ class ColorMemoryGameView extends Ui.View {
 				newGame();
 			}
 			else if (keyIndex == 3) {
-				playSounds = !playSounds;
-				Ui.requestUpdate();
+				changeSoundStatus();
 			}
 		}
+	}
+	
+	function onScreenTap(coords) {
+		var x = coords[0];
+		var y = coords[1];
+		if (state == repeating) {
+			var colorIndex;
+			if (x < dcCenterX) {
+				if (y < dcCenterY) {
+					colorIndex = 0;
+				}
+				else {
+					colorIndex = 3;
+				}
+			} else {
+				if (y < dcCenterY) {
+					colorIndex = 1;
+				}
+				else {
+					colorIndex = 2;
+				}
+			}
+			onKeyPressed(colorIndex);
+		} else if (state == paused) {
+			if (supportsSound && 
+				y > soundStatusVPos - soundStatusDim[1] && y < soundStatusVPos + soundStatusDim[1] &&
+				x > dcCenterX - soundStatusDim[0] && x < dcCenterX + soundStatusDim[0]) {
+				changeSoundStatus();
+			}
+			else {
+				newGame();
+			}
+		}
+	}
+	
+	function changeSoundStatus() {
+		playSounds = !playSounds;
+		Ui.requestUpdate();
 	}
 	
     function onLayout(dc) {
     	dcCenterX = dc.getWidth() / 2;
     	dcCenterY = dc.getHeight() / 2;
     	
-        var scoreDimensions = dc.getTextDimensions("Score: 10000", SCORE_FONT);
-        innerCircleRad = scoreDimensions[0] / 2 - 2;
-        scoreHeight = scoreDimensions[1] / 2;
+        var txtDim = dc.getTextDimensions("Score: 10000", SCORE_FONT);
+        innerCircleRad = txtDim[0] / 2 - 2;
+        scoreHeight = txtDim[1] / 2;
+        
+        soundStatusDim = dc.getTextDimensions("Sound Off", SOUND_STATUS_FONT);
+        soundStatusVPos = dc.getHeight() - soundStatusDim[1] - SOUND_STATUS_MARGIN;
     }
 	
 	function newGame() {
@@ -113,7 +164,7 @@ class ColorMemoryGameView extends Ui.View {
 			highScore = lastScore;
 			App.getApp().setProperty("highScore", highScore);
 		}
-		if (playSounds) {
+		if (playSounds && supportsSound) {
 			Attention.playTone(toneFailed);
 		}
 		state = gameover;
@@ -199,7 +250,7 @@ class ColorMemoryGameView extends Ui.View {
 
         dc.setColor(Gfx.COLOR_PURPLE, Gfx.COLOR_BLUE);
         
-		drawMainCircle(dc);
+		drawMainBoard(dc);
 		
      	dc.setColor(Gfx.COLOR_BLACK, Gfx.COLOR_BLACK);
         dc.fillCircle(dcCenterX, dcCenterY, innerCircleRad);
@@ -216,50 +267,27 @@ class ColorMemoryGameView extends Ui.View {
         }
     }
 
-    function drawMainCircle(dc) {
-        var index = 0;
-        var angle = ( Math.PI * 2 ) / colorsToRender.size();
-        var startAngle = Math.PI * ( 3 / 2.0 ) - ( angle);
-
-        // draw the wheel
+    function drawMainBoard(dc) {
+        var x = 0, y = 0;
+        var dcWidth = dc.getWidth();
+        var dcHeight = dc.getHeight();
         for(var i = 0; i < colorsToRender.size(); ++i) {
-            if(index == colorsToRender.size()) {
-                index = 0;
+            dc.setColor(colorsToRender[i], colorsToRender[i]);
+            dc.fillRectangle(x, y, dcCenterX, dcCenterY);
+            if (x >= dcCenterX) {
+            	if (y == 0) {
+					y += dcCenterY;
+            	}
+            	else {
+            		x = 0;
+            	}
             }
-
-            dc.setColor(colorsToRender[index], colorsToRender[index]);
-            drawArc(dc, dcCenterY, dcCenterX, 4, (i * angle) + startAngle, ((i + 1 ) * angle) + startAngle, true);
-            ++index;
+            else {
+            	x+= dcCenterX;
+            }
         }
-
-        // highlight the selected one
-        dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_WHITE);
-        drawArc(dc, dcCenterY, dcCenterX, dcCenterY, startAngle, startAngle + angle, false);
     }
 	
-    function drawArc(dc, centerX, centerY, radius, startAngle, endAngle, fill) {
-        var points = new [30];
-        var halfHeight = dcCenterY;
-        var halfWidth = dcCenterX;
-        var radius = ( halfHeight > halfWidth ) ? halfWidth : halfHeight;
-        var arcSize = points.size() - 2;
-        for(var i = arcSize; i >= 0; --i) {
-            var angle = ( i / arcSize.toFloat() ) * ( endAngle - startAngle ) + startAngle;
-            points[i] = [halfWidth + radius * Math.cos(angle), halfHeight + radius * Math.sin(angle)];
-        }
-        points[points.size() - 1] = [halfWidth, halfHeight];
-
-        if(fill) {
-            dc.fillPolygon(points);
-        }
-        else {
-            for(var i = 0; i < points.size() - 1; ++i) {
-                dc.drawLine(points[i][0], points[i][1], points[i+1][0], points[i+1][1]);
-            }
-            dc.drawLine(points[points.size()-1][0], points[points.size()-1][1], points[0][0], points[0][1]);
-        }
-    }
-
 	function drawInnerCircleData(dc) {
      	dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_BLACK);
      	var scoreTxt = "Score: " + (sequence.size() - 1);
@@ -287,17 +315,18 @@ class ColorMemoryGameView extends Ui.View {
 	
 	function drawPauseScreenData(dc) {
 		dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_BLACK);
-		var txt = "Press START"; 
+		var txt = isTouchScreen ? "Tap To Start" : "Press START"; 
         var txt2Dim = dc.getTextDimensions(txt, Gfx.FONT_MEDIUM);
         dc.drawText(dcCenterX, dcCenterY - txt2Dim[1] / 2, 
         	Gfx.FONT_MEDIUM, txt, Gfx.TEXT_JUSTIFY_CENTER);
         	
 		dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
-		txt = playSounds ? "Sound On" : "Sound Off";
-        txt2Dim = dc.getTextDimensions(txt, Gfx.FONT_MEDIUM);
-        dc.drawText(dcCenterX, dc.getHeight() - txt2Dim[1] - 30, 
-        	Gfx.FONT_MEDIUM, txt, Gfx.TEXT_JUSTIFY_CENTER);
-        
+		if (supportsSound) {
+			txt = playSounds ? "Sound On" : "Sound Off";
+	        dc.drawText(dcCenterX, soundStatusVPos, 
+	        	SOUND_STATUS_FONT, txt, Gfx.TEXT_JUSTIFY_CENTER);
+		}
+		        
 	    var vMargin = 8;
         if (lastScore >= 0) {
 			txt = "Score: " + lastScore;
